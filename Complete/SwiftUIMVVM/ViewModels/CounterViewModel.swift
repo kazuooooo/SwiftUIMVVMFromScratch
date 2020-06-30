@@ -9,4 +9,18 @@
 import Foundation
 
 class CounterViewModel: ObservableObject {
+    // Store count for view
+    @Published var count = 0
+    
+    // countUp method for View
+    public func countUp() {
+        // call CounterModel methods and update its count with result
+        count = CounterModel.incrmentCount(currentCount: count)
+    }
+        
+    // countDown method for View
+    public func countDown() {
+        // call CounterModel methods and update its count with result
+        count = CounterModel.decrementCount(currentCount: count)
+    }
 }

@@ -8,14 +8,28 @@
 
 import SwiftUI
 
-struct CounterView: View {    
+struct CounterView: View {
+    // Data binding with CounterView Model
+    @EnvironmentObject var counterViewModel: CounterViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        return VStack {
+            // count value updated automatically by data binding
+            Text(String(self.counterViewModel.count))
+            HStack {
+                Button("+", action: {
+                    self.counterViewModel.countUp()
+                })
+                Button("-", action: {
+                    self.counterViewModel.countDown()
+                })
+            }
+        }
     }
 }
 
 struct CountView_Previews: PreviewProvider {
     static var previews: some View {
-        CounterView()
+        CounterView().environmentObject(CounterViewModel())
     }
 }

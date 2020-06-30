@@ -9,4 +9,13 @@
 import Foundation
 
 struct CounterModel {
+    
+    public static func incrmentCount(currentCount: Int) -> Int {
+        return currentCount + 1
+    }
+    
+    public static func decrementCount(currentCount: Int) -> Int {
+        currentCount - 1
+    }
+
 }
